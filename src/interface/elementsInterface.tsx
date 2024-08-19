@@ -3,3 +3,10 @@ export interface ElementsParamsProps {
   page: number;
   category_ids: number;
 }
+
+export interface ElementsDataProps {
+  height: number;
+  id: string;
+  url: string;
+  width: number;
+}

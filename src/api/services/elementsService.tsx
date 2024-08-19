@@ -7,7 +7,6 @@ export const getElements = async ({
   page,
   category_ids,
 }: ElementsParamsProps) => {
-    console.log(limit)
   try {
     const response = await customFetch.get(
       `/v1/images/search?limit=${limit}&page=${page}&category_ids=${category_ids}`

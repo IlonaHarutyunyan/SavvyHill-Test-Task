@@ -1,11 +1,15 @@
 import React from "react";
-import  "./styles.scss"
+import "./styles.scss";
 import { Sidebar } from "../../components/Sidebar/index.tsx";
+import { SelectedElements } from "../../components/SelectedElments/index.tsx";
 
-export const HomePage = () => {
-    return(
-        <div className="home_page_wrapper">
-            <Sidebar/>
-        </div>
-    )
-}
+const HomePage: React.FC = () => {
+  return (
+    <div className="home_page_wrapper">
+      <Sidebar />
+      <SelectedElements />
+    </div>
+  );
+};
+
+export default HomePage;
