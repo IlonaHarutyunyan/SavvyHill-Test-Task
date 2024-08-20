@@ -4,6 +4,8 @@ import './App.css';
 import { getCategories } from './api/services/categoriesService.tsx';
 import { setCategories } from './redux/categoryDataSlice.tsx';
 import { useDispatch } from 'react-redux';
+import { getElements } from './api/services/elementsService.tsx';
+import { setElementsData } from './redux/elementsSlice.tsx';
 
 const HomePage = lazy(() => import('./pages/Home/index.tsx'));
 
@@ -13,10 +15,14 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [getCategoriesData] = await Promise.all([
+        const [getCategoriesData, getElementsData] = await Promise.all([
           getCategories(),
+          getElements({
+            limit: 10,
+          })
         ]);
         dispatch(setCategories(getCategoriesData));
+        dispatch(setElementsData(getElementsData))
       } catch (error) {
         console.error('Error fetching data:', error);
       }

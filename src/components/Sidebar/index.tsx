@@ -23,16 +23,13 @@ export const Sidebar = () => {
         category_ids: category_id,
       });
 
-      if (append) {
-        dispatch(
-          setElementsData([
-            ...state.elementsReducer.elements,
-            ...getElementsData,
-          ])
-        );
-      } else {
-        dispatch(setElementsData(getElementsData));
-      }
+      const dataToSet = [
+        ...(append
+          ? [...state.elementsReducer.elements, ...getElementsData]
+          : getElementsData),
+      ];
+
+      dispatch(setElementsData(dataToSet));
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -107,11 +104,11 @@ export const Sidebar = () => {
 
       <div className="mobile_menu_wrapper">
         <button className="menu_button" onClick={() => setIsModalOpen(true)}>
-        <div className="menu_icon">
-          <span className="menu_line"></span>
-          <span className="menu_line"></span>
-          <span className="menu_line"></span>
-        </div>
+          <div className="menu_icon">
+            <span className="menu_line"></span>
+            <span className="menu_line"></span>
+            <span className="menu_line"></span>
+          </div>
         </button>
       </div>
     </>

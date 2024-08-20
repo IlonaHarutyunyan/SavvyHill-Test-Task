@@ -1,16 +1,11 @@
-import { CategoriesDataProps } from "../interface/categoriesInterface";
+import { CategoriesDataProps, CategorySliceEmptyProps } from "../interface/categoriesInterface";
 
 const initialState = {
   categories: [],
   selectedCategory: {},
 };
-interface ActionProps {
-  type: string;
-  categoriesData: CategoriesDataProps[];
-  category: CategoriesDataProps;
-}
 
-export const CategoriesSlice = (state = initialState, action: ActionProps) => {
+export const CategoriesSlice = (state = initialState, action: CategorySliceEmptyProps) => {
   switch (action.type) {
     case "GET_CATEGORIES":
       return {
@@ -27,12 +22,14 @@ export const CategoriesSlice = (state = initialState, action: ActionProps) => {
       return state;
   }
 };
+
 export const setCategories = (categoriesData: CategoriesDataProps[]) => {
   return {
     type: "GET_CATEGORIES",
     categoriesData,
   };
 };
+
 export const setSelectedCategory = (category: CategoriesDataProps) => {
   return {
     type: "SET_SELECTED_CATEGORY",

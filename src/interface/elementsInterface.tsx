@@ -10,3 +10,7 @@ export interface ElementsDataProps {
   url: string;
   width: number;
 }
+export interface ElementsSliceActionProps {
+  type: string;
+  elementsData: ElementsDataProps[];
+}

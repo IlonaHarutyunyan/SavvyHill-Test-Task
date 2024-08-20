@@ -1,14 +1,10 @@
-import { ElementsDataProps } from "../interface/elementsInterface";
+import { ElementsDataProps, ElementsSliceActionProps } from "../interface/elementsInterface";
 
 const initialState = {
   elements: [],
 };
-interface ActionProps {
-  type: string;
-  elementsData: ElementsDataProps[];
-}
 
-export const ElementsSlice = (state = initialState, action: ActionProps) => {
+export const ElementsSlice = (state = initialState, action: ElementsSliceActionProps) => {
   switch (action.type) {
     case "GET_ELEMENTS":
       return {
@@ -20,6 +16,7 @@ export const ElementsSlice = (state = initialState, action: ActionProps) => {
       return state;
   }
 };
+
 export const setElementsData = (elementsData: ElementsDataProps[]) => {
   return {
     type: "GET_ELEMENTS",
